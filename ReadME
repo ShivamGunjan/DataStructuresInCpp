@@ -1,0 +1,74 @@
+
+/*
+Hii so here we are going to solve all the leetcode questions of LinkedList.
+
+This section will contain all the functions that we are going to use extensively
+
+*/
+
+
+Print Link LinkedList
+ //for debugging purpose
+    void printList(ListNode* head) {
+        ListNode* temp = head;
+        while(temp!=NULL){
+            cout<<temp->val<<"->";
+            temp=temp->next;
+        }
+        cout<<"NULL";
+        return;
+    }
+
+    // returns the reference of kth node from beginning
+     ListNode* KthNode(ListNode* head,int k){
+        ListNode* temp = head;
+        int c=1;
+        while(c!=k){
+            temp = temp->next;
+            c++;
+        }
+        return temp;
+    }
+
+    // returns the reference to last node
+    ListNode* lastNode(ListNode* head){
+        if(head==NULL){
+            return head;
+        }
+        ListNode* temp = head;
+        while(temp->next!=NULL){
+            temp=temp->next;
+        }
+        return temp;
+    }
+    
+    // This will be the most used function, returns the number of elements in list
+    int lengthOfList(ListNode* head) {
+
+        ListNode* temp = head;
+        int length = 0;
+
+        while(temp!=NULL){
+            length++;
+            temp = temp->next;
+        }
+
+        return length;
+    }
+
+    // reverse a list , returns the head of reversed list
+    ListNode* reverseList(ListNode* head){
+
+        ListNode* current = head;
+        ListNode* next = NULL;
+        ListNode* prev = NULL;
+
+        while(current!=NULL){
+            next = current->next;
+            current->next = prev;
+            prev = current;
+            current = next;
+        }
+
+        return prev;
+    }
